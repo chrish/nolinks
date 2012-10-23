@@ -8,11 +8,11 @@
 	if (isset($_GET['mode'])){
 		$mode = $_GET['mode'];
 		
-		print(json_encode(getListSegment));
+		print(json_encode(getListSegment(0, 1000)));
 		
 	}
 	
-	function getListSegment($startAt=0, $number=4000){
+	function getListSegment($startAt=0, $number=1000){
 		$text = explode("\n", file_get_contents($FILE));	
 		$return = array();
 		
