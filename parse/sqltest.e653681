@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "./parsedump.py", line 30, in <module>
+    conn.close ()
+NameError: name 'conn' is not defined
