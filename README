@@ -1,0 +1,5 @@
+nolinks is a fairly simple tool for the Wikimedia Toolserver. It's used to display all the articles missing an externallink, which in many cases mean that it's also 
+missing references, which means that it should either be fixed or deleted. The tool is licensed under the BSD-license, and consists of two parts; ony python script that 
+reads the enwiki_p database, and inserts data into the userdb u_bjelleklang, and a web frontend used to display the list of articles.
+
+For any questions, comments or other feedback, please use http://en.wikipedia.org/wiki/User_talk:Bjelleklang
