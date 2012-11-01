@@ -42,18 +42,37 @@ articles
 	    </div>
 	    
 	    <div id="data">
-            <div class="paging"><a href="#" class="prev">Previous</a><a href="#" class="next">Next</a><select class="pagelist"></select></div>
-	    	<table id="datatable">
-	    		<thead>
-	    			<th>Article name</th>
-	    			<th>Length</th>
-	    			<th>Number of links</th>
-	    			<th></th>
-	    		</thead>
-	    		<tbody>
-	    		</tbody>
-	    	</table>
-            <div class="paging"><a href="#" class="prev">Previous</a><a href="#" class="next">Next</a><select class="pagelist"></select></div>
+            <div class="search">
+                <label>Search for articles named <input name="s" class="inSearch"> <a href="#" class="doSearch">Search</a>
+                <p class="lowvis">Metacharacters:  ^str, strr$ for titles starting with <em>str</em> or ending with <em>strr</em>,* as a general wildcard. 3 characters minimum (not counting ^/$).
+            </div>
+            <div id="list"> <!-- listing wrapper-->
+                <div class="paging"><a href="#" class="prev">Previous</a><a href="#" class="next">Next</a><select class="pagelist"></select></div>
+    	    	<table id="datatable">
+    	    		<thead>
+    	    			<th>Article name</th>
+    	    			<th>Length</th>
+    	    			<th>Number of links</th>
+    	    			<th></th>
+    	    		</thead>
+    	    		<tbody>
+    	    		</tbody>
+    	    	</table>
+                <div class="paging"><a href="#" class="prev">Previous</a><a href="#" class="next">Next</a><select class="pagelist"></select></div>
+            </div>
+            <div id="search">
+                <div id="sResult">Search complete. Found <span id="sResultNum"></span> articles. <a href="#" class="closeSearch">Close search</a></div>
+                <table id="sDatatable">
+                    <thead>
+                        <th>Article name</th>
+                        <th>Length</th>
+                        <th>Number of links</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
 	    </div>
     </div>
     <div id="footer">

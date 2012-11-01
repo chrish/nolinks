@@ -20,6 +20,12 @@
 			$data = getNumArticles();
 		} else if ($mode == "remove" && isset($_GET['p'])){
             removeArticle($_GET['p']);
+        } else if ($mode == "search" && isset($_GET['p'])){
+            if (isset($_GET['off'])){
+                $data = search($_GET['p'], $_GET['off']);
+            } else {
+                $data = search($_GET['p']);
+            }
         }
 
 		print json_encode($data);
@@ -74,5 +80,37 @@
         $db = getDbConn();
         $q = "INSERT INTO verification VALUES (null, '" . mysql_real_escape_string($ip) . "', '" . mysql_real_escape_string($pid) . "', null)";
         mysql_query($q);
+    }
+
+    function search($str, $off = 0){
+        $db = getDbConn();
+
+
+        if (substr($str, 0, 1) != "^"){
+            $str = "%" . $str;
+        }else{
+            $str = substr($str, 1);
+        }
+
+        if (substr($str, -1, 1) != "$"){
+            $str = $str . "%";
+        } else {
+            $str = substr($str, 0, -1);
+        }
+
+        $str = str_replace("*", "%", $str);
+
+        
+        $db = getDbConn();
+        $q = "SELECT pageid, pagetitle, pagelen, numlinks FROM nolinks WHERE LOWER(pagetitle) LIKE '" . strtolower($str) . "' AND checked = 0;";
+   
+        $return = array();
+
+        $tmp = mysql_query($q);
+        while ($data = mysql_fetch_row($tmp)){
+            $return[] = $data;
+        }
+
+        return $return;
     }
 ?>
